@@ -1,0 +1,15 @@
+header
+  nav.navbar.navbar-default.header_area
+    .container-fluid
+      .navbar-header
+        a.navbar-brand(href='/') Bad App
+      ul.nav.navbar-nav
+        li.active
+          a(href="/register") Register 
+        li
+          a(href="/login") Login 
+        if user !== undefined
+          li
+            a(href="/articles") Article 
+          li
+            a(href="/logout") Logout

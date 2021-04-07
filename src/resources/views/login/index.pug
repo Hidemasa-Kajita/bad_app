@@ -1,0 +1,22 @@
+extends ../../components/layout/layout.pug
+
+block content
+  div.container
+    h1 Login 
+    p#error.alert-danger
+    form(action="/login" method="post")
+      div.form-group.row
+        div.col-sm-12 
+          label(for="email").form-label Email
+          input#email(name="email" type="email" placeholder="example@xxx.com").form-control
+
+      div.form-group.row
+        div.col-sm-12
+          label(for="password").form-label password
+          input#password(name="password" type="password" placeholder="password").form-control
+
+      div.form-group.row
+        div.col-sm-12
+          button.btn.btn-primary.btn-block(type='submit') submit
+          
+  script(src="../../js/urlParser.js") 

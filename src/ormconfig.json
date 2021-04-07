@@ -1,0 +1,27 @@
+{
+  "keepConnectionAlive": true,
+  "type": "mysql",
+  "host": "mysql-host",
+  "port": 3306,
+  "username": "user",
+  "password": "p@ssw0rd",
+  "database": "vulnerability",
+  "synchronize": false,
+  "logging": false,
+  "entities": [
+     "database/entities/*.ts"
+  ],
+  "migrations": [
+     "database/migrations/**/*.ts"
+  ],
+  "subscribers": [
+     "database/subscribers/**/*.ts"
+  ],
+  "cli": {
+    "entitiesDir": "src/database/entities",
+    "migrationsDir": "src/database/migrations",
+    "subscribersDir": "src/database/subscribers"
+ },
+ "seeds": ["database/seeds/*.ts"],
+ "factories": ["database/factories/*.ts"]
+}

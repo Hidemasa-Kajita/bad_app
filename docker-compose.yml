@@ -1,0 +1,60 @@
+version: '3'
+
+services:
+  # node web app
+  web:
+    image: node:lts
+    container_name: web-node
+    links: 
+      - "mysql-host:vulnerability"
+    ## npm i でエラーが出るのでコメントアウト(多分npm versionのせい)
+    # command: bash -c "npm install"
+    ports:
+      - 8080:8080
+    volumes:
+      - ./src:/var/www/html
+      - ./docker/node/logs:/root/.npm/_logs
+    working_dir: /var/www/html
+    networks: 
+      - web-ng
+    tty: true
+  # mysql
+  mysql-host:
+    container_name: mysql-node
+    build: ./docker/mysql
+    ports:
+      - 13306:3306
+    environment: 
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: vulnerability
+      MYSQL_USER: user
+      MYSQL_PASSWORD: p@ssw0rd
+      TZ: 'Asia/Tokyo'
+    volumes:
+      - ./docker/mysql/data:/var/lib/mysql
+      - ./docker/mysql/my.cnf:/etc/mysql/conf.d/my.cnf
+      - ./docker/mysql/sql:/docker-entrypoint-initdb.d
+    networks: 
+      - web-ng
+    tty: true
+  # vulnerability diagnostic tool
+  owasp:
+    image: owasp/zap2docker-stable
+    container_name: owasp-node
+    command: bash -c "zap.sh -cmd -addonuninstall hud && zap-webswing.sh"
+    volumes: 
+      - ./docker/zap/wrk:/zap/wrk/
+    ports:
+      - "8081:8080"
+      - "8090:8090"
+    depends_on:
+      - web
+    networks: 
+      - web-ng
+      - default
+    tty: true
+
+# isolated network for the web
+networks:
+  web-ng:
+    internal: true

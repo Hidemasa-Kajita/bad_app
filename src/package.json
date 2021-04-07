@@ -1,0 +1,44 @@
+{
+  "name": "vulnerability",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon index.ts",
+    "seed:config": "ts-node ./node_modules/typeorm-seeding/dist/cli.js config",
+    "seed:run": "ts-node ./node_modules/typeorm-seeding/dist/cli.js seed",
+    "typeorm": "node --require ts-node/register ./node_modules/typeorm/cli.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/express": "^4.17.11",
+    "@types/node": "^14.14.37",
+    "express": "^4.17.1",
+    "nodemon": "^2.0.7",
+    "ts-node": "^9.1.1",
+    "typescript": "^4.2.3"
+  },
+  "private": true,
+  "dependencies": {
+    "@types/body-parser": "^1.19.0",
+    "@types/express-session": "^1.17.3",
+    "@types/faker": "^5.5.0",
+    "@types/luxon": "^1.26.2",
+    "@types/multer": "^1.4.5",
+    "body-parser": "^1.19.0",
+    "class-transformer": "^0.3.1",
+    "class-validator": "^0.12.2",
+    "faker": "^4.1.0",
+    "luxon": "^1.26.0",
+    "multer": "^1.4.2",
+    "mysql2": "^2.2.5",
+    "pug": "^3.0.2",
+    "reflect-metadata": "^0.1.13",
+    "routing-controllers": "^0.9.0",
+    "typeorm": "^0.2.32",
+    "typeorm-seeding": "^1.6.1"
+  }
+}
