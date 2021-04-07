@@ -1,8 +1,8 @@
 # 脆弱性診断ツール
 
 ### はじめに
-自分が作成した以外のサイトに脆弱性診断をすることは違法なので絶対にしないでください
-このアプリはあえて脆弱性を残しています（そうでない箇所もありますが。。。）
+自分が作成した以外のサイトに脆弱性診断をすることは違法なので絶対にしないでください  
+このアプリはあえて脆弱性を残しています（そうでない箇所もありますが。。。）  
 手順がややこしかったり、アプリのバグもあるので不明点は私までご連絡ください
 
 ### 説明すること
@@ -51,9 +51,9 @@ moduleについては/src/package.jsonをご確認ください。
   - [こちら](https://www.mozilla.org/ja/firefox/new/)からinstallerをdownloadしてinstallしてください
 - firefoxのプロキシ設定
   - 設定>ネットワーク設定>接続設定...>手動でプロキシを設定する>HTTPプロキシ を `localhost`、ポート`8090`で設定して`OK`をクリックしてください
-  - 添付の画像の用になっていれば設定完了です。
+  - 以下の画像の用になっていれば設定完了です。
+  <img width="1440" alt="スクリーンショット 2021-04-07 22 00 18" src="https://user-images.githubusercontent.com/54725215/113870387-c1892a00-97ec-11eb-94be-281bd5bd32ff.png">
   > 参考：https://qiita.com/sangi/items/ba7e3d39237045c9be36
-  <img width="1440" alt="スクリーンショット 2021-04-07 21 12 12" src="https://user-imagesgithubusercontent.com/54725215/113864567-ffcf1b00-97e5-11eb-8a34-9106bc691a73.png">
 - firefoxのキャッシュを無効化
   - 検証ツールを開き`キャッシュを無効化`にチェックしてください（アプリ側の不備のため）
   <img width="1440" alt="スクリーンショット 2021-04-07 21 37 04" src="https://user-images.githubusercontent.com/54725215/113867592-b385da00-97e9-11eb-9520-a0570de9778e.png">
@@ -67,6 +67,7 @@ make setup
 > vulnerability@1.0.0 dev /var/www/html
 > nodemon index.ts
 
+・・・
 [nodemon] 2.0.7
 [nodemon] to restart at any time, enter `rs`
 [nodemon] watching path(s): *.*
@@ -80,29 +81,33 @@ make setup
     - OWASPの画面が出た後リロードすると落ちるので注意してください。その場合、`make down && make up && make run-dev`を行ってください。
     - 以下の順でロードが進みます
     <img width="1440" alt="スクリーンショット 2021-04-07 21 20 08" src="https://user-images.githubusercontent.com/54725215/113865518-23469580-97e7-11eb-956e-67876a97f704.png">
-    <img width="1440" alt="スクリーンショット 2021-04-07 21 20 17" src="https://user-images.  githubusercontent.com/54725215/113865529-25a8ef80-97e7-11eb-8bc2-74ed18c7b484.png">
-    <img width="1440" alt="スクリーンショット 2021-04-07 21 20 36" src="https://user-images.  githubusercontent.com/54725215/113865537-280b4980-97e7-11eb-9239-7e725e85482e.png">
 
   - firefox@http://web:3030
     - OWASPの画面が確認できたら firefoxで`http://web:3030`にアクセスします。
     <img width="1440" alt="スクリーンショット 2021-04-07 21 25 04" src="https://user-images.githubusercontent.com/54725215/113865995-bb447f00-97e7-11eb-875d-cc78a5a7e62a.png">
-    ※画面は変わる可能性があります。
     - 上記画面が出ず、エラー画面の場合は`make run-dev`を実行後アクセスしてください。
+    ※画面は変わる可能性があります。
 ### 初期ユーザーの確認方法と記事一覧画面アクセス
 - ユーザー登録もできますが、以下のエンドポイントから初期ユーザーを確認できます。
 firefox@http://web:3030/api/users
 <img width="1440" alt="スクリーンショット 2021-04-07 21 29 03" src="https://user-images.githubusercontent.com/54725215/113866449-4d4c8780-97e8-11eb-85e8-c0d2c362d72a.png">
-  - http://web:3030/login から初期ユーザーでログインをしてください
-  - http://web:3030/articles にアクセスしてください
-    - OWASPにアクセスした画面が登録されます
-    <img width="1440" alt="スクリーンショット 2021-04-07 21 35 54" src="https://user-images.githubusercontent.com/54725215/113867243-41ad9080-97e9-11eb-907f-8233c551381d.png">
+<img width="1440" alt="スクリーンショット 2021-04-07 22 06 06" src="https://user-images.githubusercontent.com/54725215/113871186-9a7f2800-97ed-11eb-842d-de9cd2dc6136.png">
+<img width="1440" alt="スクリーンショット 2021-04-07 22 06 38" src="https://user-images.githubusercontent.com/54725215/113871226-a23ecc80-97ed-11eb-843f-71be7f940834.png">
+
+- http://web:3030/login から初期ユーザーでログインをしてください
+
+- http://web:3030/articles にアクセスしてください
+  - OWASPにアクセスした画面が登録されます
+  <img width="1440" alt="スクリーンショット 2021-04-07 21 35 54" src="https://user-images.githubusercontent.com/54725215/113867243-41ad9080-97e9-11eb-907f-8233c551381d.png">
 
 ### 脆弱性診断ツールの説明
 #### スキャン方法
 - 赤枠の部分をクリックしてください
 <img width="1440" alt="スクリーンショット 2021-04-07 21 32 31" src="https://user-images.githubusercontent.com/54725215/113868394-99003080-97ea-11eb-88cf-ed629d22ee41.png">
+
 - selectで http://web3030 を選択>Attack でスキャン（攻撃）が始まります。
 <img width="1440" alt="スクリーンショット 2021-04-07 21 42 53" src="https://user-images.githubusercontent.com/54725215/113868173-5a6a7600-97ea-11eb-89e6-fb7152f38496.png">
+
 - ゲージが100%になったらスキャン完了です
 <img width="1440" alt="スクリーンショット 2021-04-07 21 47 45" src="https://user-images.githubusercontent.com/54725215/113868775-01e7a880-97eb-11eb-89f0-8ea00a101d8a.png">
 
@@ -110,9 +115,11 @@ firefox@http://web:3030/api/users
 #### レポート出力
 - スキャンが完了すると`Alert`が出ます
 <img width="1440" alt="スクリーンショット 2021-04-07 21 50 58" src="https://user-images.githubusercontent.com/54725215/113869333-8d613980-97eb-11eb-9aa4-c7488395184d.png">
+
 - `Report`から出力形式を選択してください（今回はhtmlで出力します）
 <img width="1440" alt="スクリーンショット 2021-04-07 21 51 26" src="https://user-images.githubusercontent.com/54725215/113869419-ab2e9e80-97eb-11eb-98fa-1ae297b6083b.png">
-- 出力ファイル名を決めて、saveをクリックしてください
+
+- 出力ファイル名を決めて、`save`をクリックしてください
 <img width="1440" alt="スクリーンショット 2021-04-07 21 51 55" src="https://user-images.githubusercontent.com/54725215/113869593-db763d00-97eb-11eb-8115-c81296b759d5.png">
 - 数秒後にブラウザからdownloadされます。
 <img width="1440" alt="スクリーンショット 2021-04-07 21 52 03" src="https://user-images.githubusercontent.com/54725215/113869824-1f694200-97ec-11eb-81e7-cbe81383b8b3.png">
