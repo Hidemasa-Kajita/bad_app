@@ -81,7 +81,8 @@ make setup
     - OWASPの画面が出た後リロードすると落ちるので注意してください。その場合、`make down && make up && make run-dev`を行ってください。
     - 以下の順でロードが進みます
     <img width="1440" alt="スクリーンショット 2021-04-07 21 20 08" src="https://user-images.githubusercontent.com/54725215/113865518-23469580-97e7-11eb-956e-67876a97f704.png">
-
+    <img width="1440" alt="スクリーンショット 2021-04-07 22 06 06" src="https://user-images.githubusercontent.com/54725215/113871186-9a7f2800-97ed-11eb-842d-de9cd2dc6136.png">
+    <img width="1440" alt="スクリーンショット 2021-04-07 22 06 38" src="https://user-images.githubusercontent.com/54725215/113871226-a23ecc80-97ed-11eb-843f-71be7f940834.png">
   - firefox@http://web:3030
     - OWASPの画面が確認できたら firefoxで`http://web:3030`にアクセスします。
     <img width="1440" alt="スクリーンショット 2021-04-07 21 25 04" src="https://user-images.githubusercontent.com/54725215/113865995-bb447f00-97e7-11eb-875d-cc78a5a7e62a.png">
@@ -91,8 +92,6 @@ make setup
 - ユーザー登録もできますが、以下のエンドポイントから初期ユーザーを確認できます。
 firefox@http://web:3030/api/users
 <img width="1440" alt="スクリーンショット 2021-04-07 21 29 03" src="https://user-images.githubusercontent.com/54725215/113866449-4d4c8780-97e8-11eb-85e8-c0d2c362d72a.png">
-<img width="1440" alt="スクリーンショット 2021-04-07 22 06 06" src="https://user-images.githubusercontent.com/54725215/113871186-9a7f2800-97ed-11eb-842d-de9cd2dc6136.png">
-<img width="1440" alt="スクリーンショット 2021-04-07 22 06 38" src="https://user-images.githubusercontent.com/54725215/113871226-a23ecc80-97ed-11eb-843f-71be7f940834.png">
 
 - http://web:3030/login から初期ユーザーでログインをしてください
 
