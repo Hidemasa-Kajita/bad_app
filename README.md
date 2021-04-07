@@ -86,8 +86,9 @@ make setup
   - firefox@http://web:3030
     - OWASPの画面が確認できたら firefoxで`http://web:3030`にアクセスします。
     <img width="1440" alt="スクリーンショット 2021-04-07 21 25 04" src="https://user-images.githubusercontent.com/54725215/113865995-bb447f00-97e7-11eb-875d-cc78a5a7e62a.png">
-    - 上記画面が出ず、エラー画面の場合は`make run-dev`を実行後アクセスしてください。
-    ※画面は変わる可能性があります。
+    
+    - 上記画面が出ず、エラー画面の場合は`make run-dev`を実行後アクセスしてください。  
+      - ※画面は変わる可能性があります。
 ### 初期ユーザーの確認方法と記事一覧画面アクセス
 - ユーザー登録もできますが、以下のエンドポイントから初期ユーザーを確認できます。
 firefox@http://web:3030/api/users
@@ -120,9 +121,11 @@ firefox@http://web:3030/api/users
 
 - 出力ファイル名を決めて、`save`をクリックしてください
 <img width="1440" alt="スクリーンショット 2021-04-07 21 51 55" src="https://user-images.githubusercontent.com/54725215/113869593-db763d00-97eb-11eb-8115-c81296b759d5.png">
+
 - 数秒後にブラウザからdownloadされます。
 <img width="1440" alt="スクリーンショット 2021-04-07 21 52 03" src="https://user-images.githubusercontent.com/54725215/113869824-1f694200-97ec-11eb-81e7-cbe81383b8b3.png">
--クリックするとレポートが確認できます
+
+- クリックするとレポートが確認できます
 <img width="1440" alt="スクリーンショット 2021-04-07 21 52 09" src="https://user-images.githubusercontent.com/54725215/113869785-16787080-97ec-11eb-903b-5c65ba17c005.png">
 
 
