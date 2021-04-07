@@ -24,6 +24,9 @@ up:
 start:
 	docker-compose -f ./docker-compose.yml start
 
+stop:
+	docker-compose -f ./docker-compose.yml stop
+
 down:
 	docker-compose -f ./docker-compose.yml down
 
@@ -38,3 +41,6 @@ exec:
 
 mysql:
 	docker-compose -f ./docker-compose.yml exec mysql-host bash -c "mysql -u user -p"
+
+run-dev:
+	docker-compose -f ./docker-compose.yml exec web bash -c "npm run dev"
