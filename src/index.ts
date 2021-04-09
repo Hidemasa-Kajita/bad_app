@@ -10,6 +10,7 @@ import { HomeController } from './app/controllers/HomeController'
 import { RegisterController } from './app/controllers/RegisterController'
 import { LoginController } from './app/controllers/LoginController'
 import { ArticleController } from './app/controllers/ArticleController'
+import { ReportController } from './app/controllers/ReportController'
 import { ApiController } from './app/controllers/ApiController'
 import { RouteMiddleware } from './app/middlewares/RouteMiddleware'
 import { ErrorMiddleware } from './app/middlewares/ErrorMiddleware'
@@ -41,6 +42,7 @@ useExpressServer(app, {
     LoginController,
     ArticleController,
     ApiController,
+    ReportController,
   ],
   middlewares: [
     RouteMiddleware,
