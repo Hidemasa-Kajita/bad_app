@@ -1,5 +1,8 @@
 import { IsEmail, IsString } from 'class-validator'
 
+/**
+ * ログインユーザーのバリデーション定義
+ */
 export class LoginUser {
   @IsEmail()
   email: string

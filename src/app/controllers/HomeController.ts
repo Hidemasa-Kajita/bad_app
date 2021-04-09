@@ -7,8 +7,14 @@ import {
 } from 'routing-controllers'
 import { AuthMiddleware } from '../middlewares/AuthMiddleware'
 
+/**
+ * homeコントローラー
+ */
 @Controller('/home')
 export class HomeController {
+  /**
+   * home画面表示
+   */
   @Get('/')
   @UseBefore(AuthMiddleware)
   @Render('home')

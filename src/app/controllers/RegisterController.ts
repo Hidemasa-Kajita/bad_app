@@ -12,8 +12,14 @@ import { User } from '../../database/entities/User'
 import { Repository, getConnectionManager } from 'typeorm'
 import { RegisterMiddleware } from '../middlewares/RegisterMiddleware'
 
+/**
+ * ユーザー登録コントローラー
+ */
 @Controller('/register')
 export class RegisterController {
+  /**
+   * 登録画面表示
+   */
   @Get('/')
   @Render('register/index')
   async index(@Session() session: any) {
@@ -23,6 +29,9 @@ export class RegisterController {
     }
   }
 
+  /**
+   * 登録処理
+   */
   @Post('/')
   @UseBefore(RegisterMiddleware)
   @Redirect('/register/complete')

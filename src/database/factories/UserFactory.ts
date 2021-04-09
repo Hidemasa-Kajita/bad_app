@@ -2,9 +2,9 @@ import Faker from 'faker'
 import { User } from '../entities/User'
 import { define } from 'typeorm-seeding'
 
-/*************************************
- * プランのダミーデータ定義
- *************************************/
+/**
+ * usersテーブルのダミーレコード定義
+ */
 define(User, (faker: typeof Faker) => {
   return new User(
     faker.name.firstName() + ' ' + faker.name.lastName(),

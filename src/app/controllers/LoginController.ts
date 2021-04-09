@@ -13,8 +13,14 @@ import { User } from '../../database/entities/User'
 import { Repository, getConnectionManager } from 'typeorm'
 import { LoginMiddleware } from '../middlewares/LoginMiddleware'
 
+/**
+ * ログインコントローラー
+ */
 @Controller('/login')
 export class LoginController {
+  /**
+   * ログイン画面表示
+   */
   @Get('/')
   @Render('login/index')
   index(@Session() session: any) {
@@ -24,6 +30,9 @@ export class LoginController {
     }
   }
 
+  /**
+   * ログイン判定処理
+   */
   @Post('/')
   @UseBefore(LoginMiddleware)
   @Redirect('/home')

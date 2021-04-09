@@ -8,7 +8,10 @@ import {
 } from 'typeorm';
 import { Article } from './Article'
 import { convertTimestampToDateTime } from '../helpers/EntityHelper'
-  
+
+/**
+ * ユーザーテーブルのエンティティ
+ */
 @Entity('users')
 export class User {
   @PrimaryGeneratedColumn()
@@ -37,6 +40,9 @@ export class User {
   })
   updated_at: Date
 
+  /**
+   * 初期値
+   */
   constructor(
     name: string,
     email: string,
@@ -51,6 +57,9 @@ export class User {
     this.updated_at = updated_at   
   }
 
+  /**
+   * articlesテーブルとのリレーション
+   */
   @OneToMany(type => Article, articles => articles.user)
   articles?: Article[]
 }

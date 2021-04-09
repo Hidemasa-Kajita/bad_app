@@ -1,8 +1,8 @@
-import { Middleware, ExpressMiddlewareInterface } from "routing-controllers";
+import { Middleware, ExpressMiddlewareInterface } from "routing-controllers"
 
-/***************************************************************************
- *　存在しないpathがリクエストされた場合、404エラーとしてレスポンスを返却するミドルウェア
- **************************************************************************/
+/**
+ * ルーティングミドルウェア
+ */
 @Middleware({ type: 'after' })
 export class RouteMiddleware implements ExpressMiddlewareInterface {
   use(req: any, res: any, next: (err?: any) => any): void {

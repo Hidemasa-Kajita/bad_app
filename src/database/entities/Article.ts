@@ -10,6 +10,9 @@ import {
 import { User } from './User'
 import { convertTimestampToDateTime } from '../helpers/EntityHelper'
 
+/**
+ * 記事テーブルのエンティティ
+ */
 @Entity('articles')
 export class Article {
   @PrimaryGeneratedColumn()
@@ -38,6 +41,9 @@ export class Article {
   })
   updated_at!: Date
 
+  /**
+   * 初期値
+   */
   constructor(
     user_id: number,
     title: string,
@@ -52,6 +58,9 @@ export class Article {
     this.updated_at = updated_at   
   }
 
+  /**
+   * usersテーブルとのリレーション
+   */
   @ManyToOne(type => User, user => user.articles)
   @JoinColumn({ name: 'user_id' })
   user?: User

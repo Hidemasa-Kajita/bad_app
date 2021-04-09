@@ -2,9 +2,9 @@ import Faker from 'faker'
 import { define } from 'typeorm-seeding'
 import { Article } from '../entities/Article'
 
-/*************************************
- * プランのダミーデータ定義
- *************************************/
+/**
+ * articlesテーブルのダミーレコード定義
+ */
 define(Article, (faker: typeof Faker, userIds: any) => {
   return new Article(
     userIds[Math.floor(Math.random() * userIds.length)],

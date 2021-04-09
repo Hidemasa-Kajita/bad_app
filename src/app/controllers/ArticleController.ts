@@ -11,8 +11,14 @@ import { Repository, getConnectionManager, SelectQueryBuilder, } from 'typeorm'
 import { Article } from '../../database/entities/Article'
 import { AuthMiddleware } from '../middlewares/AuthMiddleware'
 
+/**
+ * 記事コントローラー
+ */
 @Controller('/articles')
 export class ArticleController {
+  /**
+   * 記事一覧画面表示
+   */
   @Get('/')
   @UseBefore(AuthMiddleware)
   @Render('article/index')

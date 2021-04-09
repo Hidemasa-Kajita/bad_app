@@ -2,6 +2,9 @@ import { ExpressMiddlewareInterface } from 'routing-controllers'
 import { validate } from 'class-validator'
 import { RegisterUser } from '../validations/RegisterUser'
 
+/**
+ * ユーザー登録ミドルウェア
+ */
 export class RegisterMiddleware implements ExpressMiddlewareInterface {
   use(req: any, res: any, next: (err?: any) => any): void {
     let registerUser = new RegisterUser(
