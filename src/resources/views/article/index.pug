@@ -6,12 +6,17 @@ block content
     form(action="/articles" method="get")
       div.form-group.row
         div.col-sm-12 
-          label(for="email").form-label Search Title
-          input#email(name="title" type="text" placeholder="Title").form-control
+          label(for="title").form-label Search Title
+          if searchTitle === undefined
+            input#title(name="title" type="text" placeholder="Title").form-control
+          else 
+            input#title(name="title" type="text" value=searchTitle).form-control
       div.form-group.row
         div.col-sm-12 
           button.btn.btn-primary.btn-block(type='submit') submit
     table.table.table-hover
+      if searchTitle !== undefined && searchTitle !== ""
+        p.text-secondary 「#{searchTitle}」の検索結果 
       p.text-secondary count: #{count}
       thead.thead-light
         tr

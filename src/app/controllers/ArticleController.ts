@@ -41,6 +41,7 @@ export class ArticleController {
       count: articles[1],
       articles: articles[0],
       user: session.user,
+      searchTitle: params.title,
     }
   }
 }
