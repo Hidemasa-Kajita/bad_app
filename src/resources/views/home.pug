@@ -1,4 +1,13 @@
 extends ../components/layout/layout.pug
 
 block content
-  h1 Welcome to Bad App! 
+  div.container
+    h1 Home! 
+    table.table.table-hover
+      caption Current User
+      thead
+      tbody
+        each val, key in user
+          tr
+            th #{key}
+            th #{val} 

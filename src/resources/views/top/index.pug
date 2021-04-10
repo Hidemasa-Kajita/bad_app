@@ -2,8 +2,17 @@ extends ../../components/layout/layout.pug
 
 block content
   div.container
-    h1 Welcom Bad App!
-    div
-      a.btn.btn-primary.col-sm-12(href="/register") Register 
-    div
-      a.btn.btn-primary.col-sm-12(href="/login") Login 
+    h1 Welcom Bad App! 
+    div.card 
+      div.card-title
+        h4 Note　
+      div.card-body 
+        ul 
+          li Do not scan other than the website you created. 
+          li Keep in mind that bugs can occur.
+
+        h5 Let`s 
+          a(href="/login")  Login
+          span  or
+          a(href="/register")  Register
+        

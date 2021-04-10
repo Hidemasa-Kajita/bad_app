@@ -4,11 +4,13 @@ header
       .navbar-header
         a.navbar-brand(href='/') Bad App
       ul.nav.navbar-nav
-        li.active
+        li
           a(href="/register") Register 
         li
           a(href="/login") Login 
         if user !== undefined
+          li 
+            a(href="/home") Home 
           li
             a(href="/articles") Article 
           li

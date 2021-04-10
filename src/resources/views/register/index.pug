@@ -3,6 +3,7 @@ extends ../../components/layout/layout.pug
 block content
   div.container
     h1 Register
+    p#error
     form(action="/register" method="post")
       div.form-group.row
         div.col-sm-12 
@@ -21,6 +22,6 @@ block content
 
       div.form-group.row
         div.col-sm-12
-          button.btn.btn-primary.btn-block(type='submit') submit
+          button.btn.btn-primary.btn-block(type='submit') Register
   
   script(src="../../js/urlParser.js") 

@@ -3,7 +3,7 @@ extends ../../components/layout/layout.pug
 block content
   div.container
     h1 Login 
-    p#error.alert.alert-danger
+    p#error
     form(action="/login" method="post")
       div.form-group.row
         div.col-sm-12 
@@ -17,6 +17,6 @@ block content
 
       div.form-group.row
         div.col-sm-12
-          button.btn.btn-primary.btn-block(type='submit') submit
+          button.btn.btn-primary.btn-block(type='submit') Login
           
   script(src="../../js/urlParser.js") 
