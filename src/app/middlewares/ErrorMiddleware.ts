@@ -9,7 +9,5 @@ export class ErrorMiddleware implements ExpressErrorMiddlewareInterface {
     if (!res.headersSent) {
       res.send(error)
     }
-
-    res.end()
   }
 }

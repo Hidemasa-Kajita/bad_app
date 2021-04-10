@@ -12,6 +12,8 @@ import {
 import { User } from '../../database/entities/User'
 import { Repository, getConnectionManager } from 'typeorm'
 import { LoginMiddleware } from '../middlewares/LoginMiddleware'
+import { session } from '../../types/session'
+import { loginUser } from '../../types/user'
 
 /**
  * ログインコントローラー
@@ -23,7 +25,7 @@ export class LoginController {
    */
   @Get('/')
   @Render('login/index')
-  index(@Session() session: any) {
+  index(@Session() session: session) {
     return {
       title: 'Login',
       user: session.user,
@@ -36,7 +38,7 @@ export class LoginController {
   @Post('/')
   @UseBefore(LoginMiddleware)
   @Redirect('/home')
-  async store(@Body() body: any, @Session() session: any, @Res() res: any) {
+  async store(@Body() body: loginUser, @Session() session: session, @Res() res: any) {
     const userRepository: Repository<User> = getConnectionManager().get().getRepository(User)
     const user: User | undefined  = await userRepository.createQueryBuilder()
       .where(`email = "${body.email}"`)
@@ -45,7 +47,7 @@ export class LoginController {
 
     session.user = user
     if (user === undefined) {
-      res.redirect('/login?is_error=true').end()
+      res.redirect('/login?is_error=true')
     }
 
     return {

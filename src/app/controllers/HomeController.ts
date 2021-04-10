@@ -5,6 +5,7 @@ import {
   UseBefore,
   Controller,
 } from 'routing-controllers'
+import { session } from '../../types/session'
 import { AuthMiddleware } from '../middlewares/AuthMiddleware'
 
 /**
@@ -18,7 +19,7 @@ export class HomeController {
   @Get('/')
   @UseBefore(AuthMiddleware)
   @Render('home')
-  getAll(@Session() session: any) {
+  getAll(@Session() session: session) {
     return {
       title: 'Home',
       user: session.user,

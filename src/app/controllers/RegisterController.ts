@@ -11,6 +11,8 @@ import {
 import { User } from '../../database/entities/User'
 import { Repository, getConnectionManager } from 'typeorm'
 import { RegisterMiddleware } from '../middlewares/RegisterMiddleware'
+import { session } from '../../types/session'
+import { registerUser } from '../../types/user'
 
 /**
  * ユーザー登録コントローラー
@@ -35,7 +37,7 @@ export class RegisterController {
   @Post('/')
   @UseBefore(RegisterMiddleware)
   @Redirect('/register/complete')
-  async store(@Body() body: any, @Session() session: any) {
+  async store(@Body() body: registerUser, @Session() session: session) {
     const userRepository: Repository<User> = getConnectionManager().get().getRepository(User)
     await userRepository.createQueryBuilder()
       .insert()
@@ -50,7 +52,7 @@ export class RegisterController {
 
   @Get('/complete')
   @Render('register/store')
-  complete(@Session() session: any) {
+  complete(@Session() session: session) {
     return {
       title: 'Complete',
       user: session.user,

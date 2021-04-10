@@ -10,6 +10,8 @@ import {
 import { Repository, getConnectionManager, SelectQueryBuilder, } from 'typeorm'
 import { Article } from '../../database/entities/Article'
 import { AuthMiddleware } from '../middlewares/AuthMiddleware'
+import { articleAndCount, searchArticle } from '../../types/atricle'
+import { session } from '../../types/session'
 
 /**
  * 記事コントローラー
@@ -22,7 +24,7 @@ export class ArticleController {
   @Get('/')
   @UseBefore(AuthMiddleware)
   @Render('article/index')
-  async index(@QueryParams() params: { title?: string, contents?: string }, @Session() session: any) {
+  async index(@QueryParams() params: searchArticle, @Session() session: session) {
     const articleRepository: Repository<Article> = getConnectionManager().get().getRepository(Article)
     let query: SelectQueryBuilder<Article> = articleRepository.createQueryBuilder('articles')
       .leftJoinAndSelect('articles.user', 'user')
@@ -32,7 +34,7 @@ export class ArticleController {
       query.where(`title like "%${params.title}%"`)
     }
 
-    const articles: [Article[], number] = await query.getManyAndCount()
+    const articles: articleAndCount = await query.getManyAndCount()
 
     return {
       title: 'Articles',

@@ -9,7 +9,5 @@ export class RouteMiddleware implements ExpressMiddlewareInterface {
     if (!res.headersSent) {
       res.send(404)
     }
-
-    res.end()
   }
 }

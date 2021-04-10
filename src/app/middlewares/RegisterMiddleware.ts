@@ -7,7 +7,7 @@ import { RegisterUser } from '../validations/RegisterUser'
  */
 export class RegisterMiddleware implements ExpressMiddlewareInterface {
   use(req: any, res: any, next: (err?: any) => any): void {
-    let registerUser = new RegisterUser(
+    let registerUser: RegisterUser = new RegisterUser(
       req.body.name,
       req.body.email,
       req.body.password,
