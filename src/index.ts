@@ -14,6 +14,7 @@ import { ReportController } from './app/controllers/ReportController'
 import { ApiController } from './app/controllers/ApiController'
 import { RouteMiddleware } from './app/middlewares/RouteMiddleware'
 import { ErrorMiddleware } from './app/middlewares/ErrorMiddleware'
+import { LogoutController } from './app/controllers/LogoutController'
 
 const app = express()
 
@@ -40,6 +41,7 @@ useExpressServer(app, {
     TopController,
     RegisterController,
     LoginController,
+    LogoutController,
     ArticleController,
     ApiController,
     ReportController,
