@@ -5,16 +5,13 @@
 const url = new URL(window.location.href)
 const params = url.searchParams
 const isError = params.get('is_error')
-
+console.log(isError)
 if (isError) {
   const elem = document.getElementById('error')
   elem.classList.add('alert')
   elem.classList.add('alert-danger')
 
-  if (url.pathname === '/login') {
-    elem.innerHTML = 'Failed to login.'
-    return 
-  }
+  const isLoginPath = url.pathname === '/login'
 
-  return 'Failed to register.'
+  elem.innerHTML = isLoginPath ? 'Failed to login.' : 'Failed to register.'
 }
