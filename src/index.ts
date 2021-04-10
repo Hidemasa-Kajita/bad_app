@@ -9,12 +9,13 @@ import { TopController } from './app/controllers/TopController'
 import { HomeController } from './app/controllers/HomeController'
 import { RegisterController } from './app/controllers/RegisterController'
 import { LoginController } from './app/controllers/LoginController'
+import { LogoutController } from './app/controllers/LogoutController'
 import { ArticleController } from './app/controllers/ArticleController'
 import { ReportController } from './app/controllers/ReportController'
 import { ApiController } from './app/controllers/ApiController'
 import { RouteMiddleware } from './app/middlewares/RouteMiddleware'
 import { ErrorMiddleware } from './app/middlewares/ErrorMiddleware'
-import { LogoutController } from './app/controllers/LogoutController'
+import { HeaderMiddleware } from './app/middlewares/HeaderMiddleware'
 
 const app = express()
 
@@ -47,6 +48,7 @@ useExpressServer(app, {
     ReportController,
   ],
   middlewares: [
+    HeaderMiddleware,
     RouteMiddleware,
     ErrorMiddleware,
   ]
