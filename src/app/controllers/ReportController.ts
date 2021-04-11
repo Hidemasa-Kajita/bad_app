@@ -11,7 +11,7 @@ export class ReportController {
    */
   @Get('/')
   @Render('report/index')
-  getAll(@Session() session: session) {
+  index(@Session() session: session) {
     return {
       title: 'Report',
       user: session.user,
