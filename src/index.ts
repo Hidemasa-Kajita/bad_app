@@ -22,7 +22,7 @@ const app = express()
 app.use(express.static(path.join(__dirname, './resources')))
 app.set('js', path.join(__dirname, './resources/js'))
 app.set('views', path.join(__dirname, './resources/views'))
-app.set('view engine', 'pug');
+app.set('view engine', 'pug')
 
 app.use(bodyParser.urlencoded({
   extended: true
