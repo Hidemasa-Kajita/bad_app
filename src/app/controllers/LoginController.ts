@@ -48,6 +48,7 @@ export class LoginController {
     session.user = user
     if (user === undefined) {
       res.redirect('/login?is_error=true')
+      return res
     }
 
     return {
