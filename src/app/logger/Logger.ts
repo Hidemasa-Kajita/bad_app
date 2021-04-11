@@ -49,6 +49,6 @@ export class Logger {
    * エラーレベルのログ出力 
    */
   public error(path: string, userId: number|undefined, error: any): void {
-    this.logger.error(path, userId, error)
+    this.logger.error(this.format(path, userId, error))
   }
 }
