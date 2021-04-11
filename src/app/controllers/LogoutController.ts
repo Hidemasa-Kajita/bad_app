@@ -12,11 +12,11 @@ export class LogoutController {
    * トップ画面表示
    */
   @Get('/')
-  @Redirect('/')
+  @Redirect('/login')
   logout(@Session() session: session) {
     session.user = undefined
     return {
-      title: 'Top',
+      title: 'Login',
       user: session.user,
     }
   }
