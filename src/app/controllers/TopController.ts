@@ -11,7 +11,7 @@ export class TopController {
    */
   @Get('/')
   @Render('top/index')
-  getAll(@Session() session: session) {
+  index(@Session() session: session) {
     return {
       title: 'Top',
       user: session.user,

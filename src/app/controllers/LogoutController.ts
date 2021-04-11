@@ -4,12 +4,12 @@ import { Get, Session, Controller, Redirect } from 'routing-controllers'
 import { session } from '../../types/session'
 
 /**
- * トップコントローラー
+ * ログアウトコントローラー
  */
 @Controller('/logout')
 export class LogoutController {
   /**
-   * トップ画面表示
+   * ログアウト処理
    */
   @Get('/')
   @Redirect('/login')
