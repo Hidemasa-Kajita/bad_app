@@ -13,8 +13,6 @@ export class RouteMiddleware implements ExpressMiddlewareInterface {
       res.send(404)
     }
 
-    appLog.info(req.path, req.session.user, 'routing info.')
-
     return res
   }
 }
