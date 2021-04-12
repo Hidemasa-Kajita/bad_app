@@ -12,6 +12,7 @@ import { Article } from '../../database/entities/Article'
 import { AuthMiddleware } from '../middlewares/AuthMiddleware'
 import { articleAndCount, searchArticle } from '../../types/atricle'
 import { session } from '../../types/session'
+import { appLog } from '../logger/AppLog'
 
 /**
  * 記事コントローラー
@@ -25,6 +26,8 @@ export class ArticleController {
   @UseBefore(AuthMiddleware)
   @Render('article/index')
   async index(@QueryParams() params: searchArticle, @Session() session: session) {
+    appLog.info('/article', session.user, params)
+
     const articleRepository: Repository<Article> = getConnectionManager().get().getRepository(Article)
     let query: SelectQueryBuilder<Article> = articleRepository.createQueryBuilder('articles')
       .leftJoinAndSelect('articles.user', 'user')

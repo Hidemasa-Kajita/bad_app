@@ -1,4 +1,5 @@
 import log4js from 'log4js'
+import { User } from '../../database/entities/User'
 import { config } from './Config'
 
 /**
@@ -23,15 +24,18 @@ export class Logger {
   /**
    * ログ出力フォーマット
    */
-  private format(path: string, userId: number|undefined, message: any) {
+  private format(path: string, user: User|undefined, message: any) {
+    const jsonUser = JSON.stringify(user)
+    const jsonMessage = JSON.stringify(message)
+
     return `
     ============================================================================
     start:
       logging start...
     content:
       endpoint: ${path}
-      userId: ${userId}
-      message: ${message}
+      user: ${jsonUser}
+      message: ${jsonMessage}
     end:
       logging end...
     ============================================================================
@@ -41,14 +45,14 @@ export class Logger {
   /**
    * infoレベルのログ出力
    */
-  public info(path: string, userId: number|undefined, info: any): void {
-    this.logger.info(this.format(path, userId, info))
+  public info(path: string, user: User|undefined, info: any): void {
+    this.logger.info(this.format(path, user, info))
   }
 
   /**
    * エラーレベルのログ出力 
    */
-  public error(path: string, userId: number|undefined, error: any): void {
-    this.logger.error(this.format(path, userId, error))
+  public error(path: string, user: User|undefined, error: any): void {
+    this.logger.error(this.format(path, user, error))
   }
 }

@@ -1,4 +1,5 @@
 import log4js from 'log4js'
+import { User } from '../../database/entities/User'
 import { Logger } from './Logger'
 
 /**
@@ -14,17 +15,17 @@ class AppLog extends Logger {
   /**
    * infoレベルのログ出力
    */
-  public info(path: string, userId: number|undefined, info: any) {
+  public info(path: string, user: User|undefined, info: any) {
     this.logger.addContext('endpoint', this.makeFileName(path))
-    super.info(path, userId, info)
+    super.info(path, user, info)
   }
 
   /**
    * errorレベルのログ出力
    */
-  public error(path: string, userId: number|undefined, error: any) {
+  public error(path: string, user: User|undefined, error: any) {
     this.logger.addContext('endpoint', this.makeFileName(path))
-    super.error(path, userId, error)
+    super.error(path, user, error)
   }
 }
 

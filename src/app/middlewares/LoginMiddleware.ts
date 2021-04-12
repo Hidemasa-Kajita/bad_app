@@ -1,5 +1,6 @@
 import { validateSync, validate, ValidationError } from 'class-validator'
 import { ExpressMiddlewareInterface } from 'routing-controllers'
+import { appLog } from '../logger/AppLog'
 import { LoginUser } from '../validations/LoginUser'
 
 /**

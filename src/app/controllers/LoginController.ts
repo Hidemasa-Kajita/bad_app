@@ -14,6 +14,7 @@ import { Repository, getConnectionManager } from 'typeorm'
 import { LoginMiddleware } from '../middlewares/LoginMiddleware'
 import { session } from '../../types/session'
 import { loginUser } from '../../types/user'
+import { appLog } from '../logger/AppLog'
 
 /**
  * ログインコントローラー
@@ -47,9 +48,12 @@ export class LoginController {
 
     session.user = user
     if (user === undefined) {
+      appLog.info('/login', session.user, body)
       res.redirect('/login?is_error=true')
       return res
     }
+
+    appLog.info('/login', session.user, body)
 
     return {
       user: user,

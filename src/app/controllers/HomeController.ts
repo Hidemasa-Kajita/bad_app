@@ -6,6 +6,7 @@ import {
   Controller,
 } from 'routing-controllers'
 import { session } from '../../types/session'
+import { appLog } from '../logger/AppLog'
 import { AuthMiddleware } from '../middlewares/AuthMiddleware'
 
 /**
@@ -19,7 +20,9 @@ export class HomeController {
   @Get('/')
   @UseBefore(AuthMiddleware)
   @Render('home')
-  getAll(@Session() session: session) {
+  index(@Session() session: session) {
+    appLog.info('/home', session.user, 'login.')
+
     return {
       title: 'Home',
       user: session.user,

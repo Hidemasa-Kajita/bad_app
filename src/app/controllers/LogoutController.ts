@@ -1,7 +1,6 @@
-import { SessionData } from 'express-session'
-import { SessionOptions } from 'node:http2'
 import { Get, Session, Controller, Redirect } from 'routing-controllers'
 import { session } from '../../types/session'
+import { appLog } from '../logger/AppLog'
 
 /**
  * ログアウトコントローラー
@@ -14,6 +13,8 @@ export class LogoutController {
   @Get('/')
   @Redirect('/login')
   logout(@Session() session: session) {
+    appLog.info('/logout', session.user, 'logout.')
+
     session.user = undefined
     return {
       title: 'Login',

@@ -13,6 +13,7 @@ import { Repository, getConnectionManager } from 'typeorm'
 import { RegisterMiddleware } from '../middlewares/RegisterMiddleware'
 import { session } from '../../types/session'
 import { registerUser } from '../../types/user'
+import { appLog } from '../logger/AppLog'
 
 /**
  * ユーザー登録コントローラー
@@ -44,6 +45,8 @@ export class RegisterController {
       .into(User)
       .values(body)
       .execute()
+
+    appLog.info('/register', session.user, body)
 
     return {
       user: session.user,
