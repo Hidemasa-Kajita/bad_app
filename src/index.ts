@@ -2,7 +2,6 @@ import 'reflect-metadata'
 import path from 'path'
 import express from 'express'
 import session from 'express-session'
-import bodyParser from 'body-parser'
 import { useExpressServer } from 'routing-controllers'
 import { getConnectionManager, createConnection } from 'typeorm'
 import { TopController } from './app/controllers/TopController'
@@ -24,10 +23,10 @@ app.set('js', path.join(__dirname, './resources/js'))
 app.set('views', path.join(__dirname, './resources/views'))
 app.set('view engine', 'pug')
 
-app.use(bodyParser.urlencoded({
+app.use(express.urlencoded({
   extended: true
 }))
-app.use(bodyParser.json())
+app.use(express.json())
 
 app.use(session({
   secret: 'keyboard cat',
